@@ -24,8 +24,3 @@
 - Python 3.x (for AI/ML tasks).
 - C compiler (e.g., `gcc`).
 
-### **Steps**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/smart-file-organizer.git
-   cd smart-file-organizer
