@@ -1,4 +1,3 @@
-```markdown
 # Smart File Organizer (C)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Issues](https://img.shields.io/github/issues/Shadabdullah/SmartFileOrganizer.svg)](https://github.com/Shadabdullah/SmartFileOrganizer/issues)
