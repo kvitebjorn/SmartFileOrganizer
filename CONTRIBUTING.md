@@ -3,23 +3,6 @@
 [![Issues](https://img.shields.io/github/issues/Shadabdullah/SmartFileOrganizer.svg)](https://github.com/Shadabdullah/SmartFileOrganizer/issues)
 [![Contributors](https://img.shields.io/github/contributors/Shadabdullah/SmartFileOrganizer.svg)](https://github.com/Shadabdullah/SmartFileOrganizer/graphs/contributors)
 
-A command-line tool that organizes files using file type detection, content analysis, and AI-based tagging.
-
-## 🚀 Features
-- 📂 **File Type Detection**: Categorizes files into folders (Images, Documents, Videos, etc.).
-- 🔍 **Content-Based Organization**: Extracts keywords and groups related text files.
-- 🧠 **AI Tagging (Future Feature)**: Uses machine learning for intelligent categorization.
-- 📊 **Usage-Based Suggestions**: Identifies frequently accessed files and suggests moving them to a **Favorites** folder.
-- 🖥️ **Interactive CLI**: Allows users to review and approve file moves before execution.
-- 🔄 **Automated Backups**: Ensures data safety before organizing files.
-
-## 🛠️ Installation
-
-```sh
-git clone https://github.com/Shadabdullah/SmartFileOrganizer.git
-cd SmartFileOrganizer
-make
-```
 
 ---
 
