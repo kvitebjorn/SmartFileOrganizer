@@ -1,0 +1,8 @@
+#ifndef UTILS_H
+#define UTILS_H
+
+enum file_types {
+    int a;
+};
+
+#endif
