@@ -4,5 +4,5 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-bool      cmp_buffers (const uint8_t  *restrict buff1, const uint8_t *restrict buff2, size_t lenght);
+bool  cmp_buffers (const uint8_t  *restrict buff1, const uint8_t *restrict buff2, size_t lenght);
 #endif
