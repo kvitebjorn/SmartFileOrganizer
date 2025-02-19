@@ -15,7 +15,6 @@
 struct program_state {
     bool    is_running;                 //stores the current state of the program
     char    input_buff[USR_BUFF_CAP];   //holds the user input
-    uint8_t last_char_index;            // Used to store the index of the last read char
 };
 
 /*
