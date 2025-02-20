@@ -8,11 +8,11 @@ static int8_t format_null(struct program_state *program_struct);
 */
 int read_input(struct program_state *program_struct) {
     if (NULL == program_struct )
-        return ERROR_READ;
+        return USER_COMMAND_READ_ERROR;
 
     fgets(program_struct->input_buff, USR_BUFF_CAP, stdin); // Get the input
     if (format_null(program_struct) != 0)
-        return ERROR_READ;
+        return USER_COMMAND_READ_ERROR;
 
 
     /*
@@ -32,7 +32,7 @@ int read_input(struct program_state *program_struct) {
         program_struct->is_running = false;
     }
 
-    return READ_SUCCESS;
+    return USER_COMMAND_READ_SUCESS;
 }
 
 
