@@ -32,7 +32,7 @@ int read_input(struct program_state *program_struct) {
         program_struct->is_running = false;
     }
 
-    return USER_COMMAND_READ_SUCESS;
+    return USER_COMMAND_READ_SUCCESS;
 }
 
 
