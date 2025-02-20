@@ -6,8 +6,8 @@
 #include <stdint.h>
 #include <string.h>
 
-#define  ERROR_READ  -1
-#define  READ_SUCCESS 0
+#define  USER_COMMAND_READ_ERROR  -1
+#define  USER_COMMAND_READ_SUCCESS 0
 
 #define  USR_BUFF_CAP  35 // Just a start value, can be changed as needed
 
