@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int main(void)
+int main(int argc, const char **argv)
 {
-  printf("Smart File Manager CLI");
-  return 0;
+    printf("Welcome to Smart File Organazier :)\n");
+    return 0;
 }
