@@ -20,21 +20,25 @@ We welcome contributions to make this project even better! Here's how you can ge
       git clone https://github.com/your-username/SmartFileOrganizer.git
       cd SmartFileOrganizer
       ```
-   3. **Create a new branch**:  
+   3. **Configure Git to sync your fork with the upstream repository**:  
+      ```sh
+      git remote add upstream https://github.com/Shadabdullah/SmartFileOrganizer.git
+      ```
+   4. **Create a new branch**:
       ```sh
       git checkout -b feature/my-feature
       ```
-   4. **Make your changes**:  
+   5. **Make your changes**:  
       - Add new features, fix bugs, or improve documentation.  
-   5. **Commit your changes**:  
+   6. **Commit your changes**:  
       ```sh
       git commit -m "Your descriptive commit message"
       ```
-   6. **Push your changes**:  
+   7. **Push your changes**:  
       ```sh
       git push origin feature/my-feature
       ```
-   7. **Create a Pull Request**: Go to the repository and click "New Pull Request" to submit your changes for review.
+   8. **Create a Pull Request**: Go to the repository and click "New Pull Request" to submit your changes for review.
 
 ### 📏 Coding Standards
 - Follow the **C99 standard** for consistent, portable C code.
