@@ -14,6 +14,7 @@ typedef struct
     unsigned long file_size;
     char details[MAX_DESCRIPTION_SIZE];
     char type[MAX_TYPE_SIZE];
+    char format[MAX_TYPE_SIZE];
     bool success_analyse;
 } file_info;
 
