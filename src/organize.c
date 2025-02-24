@@ -1,10 +1,21 @@
 #include "../include/organize.h"
 
+static void handle_images(const file_info *file_info) {
+    if (file_info == NULL)
+        return;
+
+    if (strcmp(file_info->format, "jpeg") == 0) {
+        sy
+    }
+}
+
 static int8_t handle_types(const file_info *file_info) {
     if (file_info == NULL)
         return FAIL_HANDLE_TYPE; 
 
-    
+    if(strcmp(file_info->type, "image") == 0) {
+        if (strcmp(file_info->format, ""))
+    }
     
 }
 
