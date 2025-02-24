@@ -5,7 +5,7 @@ static void handle_images(const file_info *file_info) {
         return;
 
     if (strcmp(file_info->format, "jpeg") == 0) {
-        sy
+        
     }
 }
 
