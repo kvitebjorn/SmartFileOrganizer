@@ -2,3 +2,4 @@ sfo
 .vscode
 *.o
 dev.nix
+.devcontainer.json
