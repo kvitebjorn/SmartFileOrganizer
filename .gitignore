@@ -1,3 +1,4 @@
 sfo
 .vscode
 *.o
+dev.nix
