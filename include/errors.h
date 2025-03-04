@@ -11,6 +11,9 @@
 
 #define MSG_FAIL_FILE_BYTES_READ "Fail to read all the bytes from the file"
 #define MSG_FAIL_FILE_INFO_DETAILS "Failed to identify file type & description"
+#define MSG_FAIL_NO_EXTENSION "There is no extension, probably binary file"
+
+
 /**
  * Error codes
  */
@@ -25,5 +28,4 @@
 #define FAIL_OPEN_FILE 1012
 #define FAIL_FILE_INFO_DETAILS 1013
 
-#define FAIL_ORGANIZE_FILES -1
-#define FAIL_HANDLE_TYPE -1
+#define FAIL_NO_EXTENSION 2011
