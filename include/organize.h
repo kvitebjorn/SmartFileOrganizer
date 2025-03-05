@@ -10,6 +10,14 @@
 #include "file_type_detector.h"
 #include "errors.h"
 
+#define FAIL_HANDLE_TYPE -1
+#define FAIL_ORGANIZE_FILES -1
+
+#define IMAGE_TYPE_ARRAY_LEN 7
+
+const char *image_types[] =  {"png", "jpeg", "gif", "bmp", "tiff", "webp", "x-icon"};
+
+
 int8_t organize(const char *path);
 
 #endif
