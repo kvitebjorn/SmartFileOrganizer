@@ -137,6 +137,8 @@ int get_file_type(const char *file_path, file_info *f_info)
                 strncpy(f_info->format, output, strlen(output)); //Copy the format to the buffer
                 f_info->format[strlen(output) + 1] = '\0';
             }
+
+            strncpy(f_info->path, file_path, MAX_FILE_NAME_LEN); // Copy the full path to the file
         }
 
         close(file_descriptor);
