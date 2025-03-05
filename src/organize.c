@@ -1,12 +1,19 @@
 #include "../include/organize.h"
 
-static void handle_images(const file_info *file_info) {
+const char *sfo_home = NULL;
+char *links_path = NULL;
+
+static int handle_images(const file_info *file_info) {
     if (file_info == NULL)
         return;
 
-    if (strcmp(file_info->format, "jpeg") == 0) {
-        
+    for (int i = 0; i < IMAGE_TYPE_ARRAY_LEN; i ++) {
+        if (strcmp(file_info->extension, image_types[i]) == 0) {
+            links_path = strcat(sfo_home, strcat("/images/", image_types[i]));  // concat the path to the images with the directory related to the file type
+        }
     }
+
+    return execvp("ln", (const char *[]) {"-s", file_info->path, " ",links_path}); // Returns if the link was successfully made
 }
 
 static int8_t handle_types(const file_info *file_info) {
@@ -14,7 +21,8 @@ static int8_t handle_types(const file_info *file_info) {
         return FAIL_HANDLE_TYPE; 
 
     if(strcmp(file_info->type, "image") == 0) {
-        if (strcmp(file_info->format, ""))
+        mkdir(strcat(sfo_home, "/images"), 755); // create a directory for images
+        handle_images(file_info);
     }
     
 }
@@ -33,6 +41,8 @@ int8_t organize(const char *path) {
 
     if (dir_pointer == NULL)
         return FAIL_ORGANIZE_FILES;
+
+    sfo_home = strcat(getenv("HOME"), "/.sfo"); // SFO home (where the backups goes)
 
     while ((file_on_dir = readdir(&dir_pointer)) != NULL) {
         if (strcmp(file_type.type, "inode") == 0) {
