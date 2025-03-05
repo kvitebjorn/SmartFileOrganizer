@@ -123,13 +123,22 @@ int get_file_type(const char *file_path, file_info *f_info)
             strncpy(type_buff, f_info->details, strlen(f_info->details)); // Copy details to buffer
             type_buff[strlen(f_info->details) + 1] = '\0';
 
-            char *output = strtok(type_buff, ","); // Get only first part (the file type)
+            char *output = strtok(type_buff, "/"); // Get only first part (the file type)
             if (output)
             {
                 // Copying type
                 strncpy(f_info->type, type_buff, strlen(type_buff));
                 f_info->type[strlen(type_buff) + 1] = '\0';
             }
+
+            output = strtok(NULL, '/');  // Get the second part (the file format)
+            if (output) 
+            {
+                strncpy(f_info->format, output, strlen(output)); //Copy the format to the buffer
+                f_info->format[strlen(output) + 1] = '\0';
+            }
+
+            strncpy(f_info->path, file_path, MAX_FILE_NAME_LEN); // Copy the full path to the file
         }
 
         close(file_descriptor);
