@@ -1,55 +1,84 @@
 #include "../include/organize.h"
 
-const char *sfo_home = NULL;
-char *links_path = NULL;
+const char *image_types[] = {"png", "jpeg", "jpg", "gif", "bmp", "tiff", "webp", "x-icon"};
 
-static int handle_images(const file_info *file_info) {
+char sfo_home[1024];
+char links_path[1024];
+
+bool is_image = false;
+
+#define SUCCESS_CREATED_IMAGE_LINKS 0
+
+// Current working directory
+char current_directory[1024];
+
+static int handle_images(const file_info *file_info)
+{
     if (file_info == NULL)
-        return;
+        return -1;
 
-    for (int i = 0; i < IMAGE_TYPE_ARRAY_LEN; i ++) {
-        if (strcmp(file_info->extension, image_types[i]) == 0) {
-            links_path = strcat(sfo_home, strcat("/images/", image_types[i]));  // concat the path to the images with the directory related to the file type
+    if (symlink(sfo_home, "link_image") == -1)
+    {
+        fprintf(stderr, "Error: %s\n", MSG_FAIL_CREATE_SYMBOLIC_LINK);
+        return FAIL_CREATE_SYMBOLIC_LINK;
+    }
+
+        return 0;
+}
+
+static int handle_types(const file_info *file_info)
+{
+    if (file_info == NULL)
+        return FAIL_HANDLE_TYPE;
+
+    for (int i = 0; i < IMAGE_TYPE_ARRAY_LEN; i++)
+    {
+        if (strcmp(file_info->extension, image_types[i]) == 0)
+        {
+            is_image = true;
+            break;
         }
     }
 
-    return execvp("ln", (const char *[]) {"-s", file_info->path, " ",links_path}); // Returns if the link was successfully made
-}
+    if (is_image)
+    {
+        strcat(sfo_home, "/images/"); 
+        if (!mkdir(sfo_home, 0755)) // create a directory for images
+        {
+            fprintf(stderr, "Error: %s\n", MSG_FAIL_CREATE_DIRECTORY);
+            return FAIL_CREATE_NEW_DIRECTORY;
+        }
 
-static int8_t handle_types(const file_info *file_info) {
-    if (file_info == NULL)
-        return FAIL_HANDLE_TYPE; 
+        //TO DO ( maybe copying the original image files into newly created folder (images))
 
-    if(strcmp(file_info->type, "image") == 0) {
-        mkdir(strcat(sfo_home, "/images"), 755); // create a directory for images
         handle_images(file_info);
     }
-    
 }
 
 /*
     Function to handle the organize process
 */
-int8_t organize(const char *path) {
-    if (path == NULL || check_is_a_dir(path) == false) // Check if the path points do a directory
-        return FAIL_ORGANIZE_FILES;   
+int organize(const file_info *f_info)
+{
 
+    if (!getcwd(current_directory, sizeof(current_directory)))
+    {
+        fprintf(stderr, "Error: %s or %s\n", MSG_FAIL_NO_CWD, MSG_FAIL_NO_SPACE);
+        return FAIL_NO_CWD;
+    }
 
-    struct dirent *file_on_dir;         // struct to store the curret file on the dir 
-    DIR *dir_pointer = opendir(path);   // pointer to the current directory
-    file_info file_type;
+    strncpy(sfo_home, current_directory, sizeof(sfo_home));
+    sfo_home[strlen(current_directory) + 1] = '\0';
 
-    if (dir_pointer == NULL)
-        return FAIL_ORGANIZE_FILES;
+    if (!sfo_home)
+    {
+        fprintf(stderr, "Error: %s\n", MSG_FAIL_COPY_CWD);
+        return FAIL_NO_COPY;
+    }
 
-    sfo_home = strcat(getenv("HOME"), "/.sfo"); // SFO home (where the backups goes)
-
-    while ((file_on_dir = readdir(&dir_pointer)) != NULL) {
-        if (strcmp(file_type.type, "inode") == 0) {
-            continue; // the file is a directory, jump to the next file
-        } else {
-            get_file_type(file_on_dir->d_name, &file_type);
-        }
+    if (f_info->success_analyse)
+    {
+        handle_types(f_info);
     }
 
     return 0;
