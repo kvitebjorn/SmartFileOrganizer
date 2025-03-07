@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "../include/file_type_detector.h"
+#include "../include/organize.h"
 
 file_info output;
 
@@ -27,6 +28,10 @@ int main(int argc, char *argv[])
     }
     //Getting more info about the files and categorizing them ( to do )
     type_categories(path, &output);
+    //Test organizing function
+    int organize_output = organize(&output);
+    printf("organize returned: %d\n", organize_output);
+
   }
 
   return 0;

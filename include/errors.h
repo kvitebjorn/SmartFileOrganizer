@@ -13,6 +13,13 @@
 #define MSG_FAIL_FILE_INFO_DETAILS "Failed to identify file type & description"
 #define MSG_FAIL_NO_EXTENSION "There is no extension, probably binary file"
 
+#define MSG_FAIL_NO_CWD "Cannot get the current working directory"
+#define MSG_FAIL_NO_SPACE "Cannot allocate enough space"
+
+#define MSG_FAIL_COPY_CWD "Failed to copy the current working directory"
+
+#define MSG_FAIL_CREATE_DIRECTORY "Failed to create a new directory"
+#define MSG_FAIL_CREATE_SYMBOLIC_LINK "Failed to create symbolic link"
 
 /**
  * Error codes
@@ -29,3 +36,8 @@
 #define FAIL_FILE_INFO_DETAILS 1013
 
 #define FAIL_NO_EXTENSION 2011
+
+#define FAIL_NO_CWD 3001
+#define FAIL_NO_COPY 3002
+#define FAIL_CREATE_NEW_DIRECTORY 3003
+#define FAIL_CREATE_SYMBOLIC_LINK 3004 
